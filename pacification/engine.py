@@ -14,6 +14,31 @@ from .models import AttemptResult, Provider, Settings, Target
 
 Event = Callable[[AttemptResult], None]
 INTERNAL_RESULTS = {"cooldown", "stopped"}
+NEGATIVE_STATUSES = {"error", "failed", "failure", "invalid", "false", "blocked", "captcha"}
+NEGATIVE_TEXT = ("error", "failed", "invalid", "captcha", "blocked", "not sent", "rate limit")
+
+
+def _negative_signal(payload: object, text: str) -> str:
+    if isinstance(payload, dict):
+        if payload.get("success") is False:
+            return "json success=false"
+        error = payload.get("error")
+        if error:
+            return f"json error={str(error)[:80]}"
+        status = str(payload.get("status", "")).lower()
+        if status in NEGATIVE_STATUSES:
+            return f"json status={status}"
+        for key in ("message", "msg", "detail", "description"):
+            value = str(payload.get(key, "")).lower()
+            for token in NEGATIVE_TEXT:
+                if token in value:
+                    return f"json {key} contains {token}"
+
+    lowered = text.lower()
+    for token in ('"success":false', '"success": false', '"error":', "captcha", "too many requests", "invalid phone", "not sent"):
+        if token in lowered:
+            return f"body contains {token}"
+    return ""
 
 
 def _json_get(data: object, path: str) -> object:
@@ -93,6 +118,10 @@ class Engine:
             payload = response.json()
         except ValueError:
             pass
+
+        negative = _negative_signal(payload, response.text or "")
+        if negative:
+            return False, negative[:240]
 
         path = config.get("json_path")
         exists = config.get("exists")

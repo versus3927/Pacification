@@ -174,9 +174,9 @@ def from_tbomb(raw: str) -> list[dict[str, Any]]:
                     spec["query"] = entry["params"]
                 if entry.get("headers"):
                     spec["headers"] = entry["headers"]
-                identifier = entry.get("identifier")
-                if identifier:
-                    spec["success"]["regex"] = re.escape(str(identifier))
+                identifier = str(entry.get("identifier") or "").strip()
+                if len(identifier) >= 4 and any(char.isalpha() for char in identifier):
+                    spec["success"]["regex"] = re.escape(identifier)
                 result.append(spec)
     return result
 
@@ -220,6 +220,17 @@ def merge(base: list[dict[str, Any]], additions: list[dict[str, Any]]) -> list[d
     return merged
 
 
+def clean_success(providers: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Drop numeric placeholders that match any response containing a status code."""
+    for provider in providers:
+        success = provider.get("success") or {}
+        pattern = str(success.get("regex") or "").strip()
+        if pattern and (len(pattern) < 4 or not any(char.isalpha() for char in pattern)):
+            success.pop("regex", None)
+        provider["success"] = success
+    return providers
+
+
 def main() -> None:
     base = json.loads(REGISTRY.read_text(encoding="utf-8"))["providers"]
     additions: list[dict[str, Any]] = []
@@ -239,7 +250,7 @@ def main() -> None:
         additions.extend(found)
         print(f"{name}: {len(found)}")
 
-    providers = merge(base, additions)
+    providers = clean_success(merge(base, additions))
     REGISTRY.write_text(
         json.dumps({"providers": providers}, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",

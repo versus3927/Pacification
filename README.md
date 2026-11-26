@@ -15,6 +15,14 @@ pacification
 python -m pacification
 ```
 
+Или вообще без PATH и без ручной настройки venv:
+
+```powershell
+C:\Users\pc\Downloads\Pacification\run.bat
+```
+
+`run.bat` сам создаст `.venv`, поставит пакет и откроет меню.
+
 Меню:
 
 ```text
@@ -121,6 +129,7 @@ python tools\build_registry.py
 - `concurrency` — семафор на одновременные HTTP-запросы.
 - `rps` — глобальный лимит запросов в секунду.
 - `cooldown` / `max_failures` — провайдер уходит в офлайн после повторяющихся ошибок.
+- Ответ с `success=false`, `error`, `status=failed` и текстом `captcha/invalid/rate limit` считается ошибкой даже при HTTP 200.
 - Сухой прогон строит тот же план, но не делает сетевых запросов.
 
 Лог: `pacification.log` в рабочей директории, CSV с колонками `ts,provider,kind,ok,status,elapsed_ms,detail`.
