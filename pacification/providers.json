@@ -1,0 +1,299 @@
+{
+  "providers": [
+    {
+      "name": "textbelt",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://textbelt.com/text",
+      "body_type": "form",
+      "body": {
+        "phone": "{intl}",
+        "message": "Pacification {code}",
+        "key": "{env:PACIFICATION_TEXTBELT_KEY|textbelt}"
+      },
+      "success": {"status": [200], "json_path": "success", "equals": true},
+      "note": "shared key sends 1 free SMS per day"
+    },
+    {
+      "name": "twilio-sms",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{env:PACIFICATION_TWILIO_SID}/Messages.json",
+      "auth": {
+        "type": "basic",
+        "username": "{env:PACIFICATION_TWILIO_SID}",
+        "password": "{env:PACIFICATION_TWILIO_TOKEN}"
+      },
+      "body_type": "form",
+      "body": {
+        "To": "{intl}",
+        "From": "{env:PACIFICATION_TWILIO_FROM}",
+        "Body": "Pacification {code}"
+      },
+      "success": {"status": [201], "exists": "sid"}
+    },
+    {
+      "name": "twilio-call",
+      "kind": "call",
+      "method": "POST",
+      "url": "https://api.twilio.com/2010-04-01/Accounts/{env:PACIFICATION_TWILIO_SID}/Calls.json",
+      "auth": {
+        "type": "basic",
+        "username": "{env:PACIFICATION_TWILIO_SID}",
+        "password": "{env:PACIFICATION_TWILIO_TOKEN}"
+      },
+      "body_type": "form",
+      "body": {
+        "To": "{intl}",
+        "From": "{env:PACIFICATION_TWILIO_FROM}",
+        "Url": "{env:PACIFICATION_TWILIO_TWIML_URL|https://demo.twilio.com/docs/voice.xml}"
+      },
+      "success": {"status": [201], "exists": "sid"}
+    },
+    {
+      "name": "vonage-sms",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://rest.nexmo.com/sms/json",
+      "body_type": "form",
+      "body": {
+        "api_key": "{env:PACIFICATION_VONAGE_KEY}",
+        "api_secret": "{env:PACIFICATION_VONAGE_SECRET}",
+        "from": "{env:PACIFICATION_VONAGE_FROM|Pacification}",
+        "to": "{digits}",
+        "text": "Pacification {code}"
+      },
+      "success": {"status": [200], "json_path": "messages.0.status", "equals": "0"}
+    },
+    {
+      "name": "sms-to",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://api.sms.to/sms/send",
+      "auth": {"type": "bearer", "token": "{env:PACIFICATION_SMS_TO_KEY}"},
+      "body_type": "json",
+      "body": {
+        "message": "Pacification {code}",
+        "to": "{intl}",
+        "sender_id": "{env:PACIFICATION_SMS_TO_SENDER|Pacification}",
+        "bypass_optout": false
+      },
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "mailersend",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://api.mailersend.com/v1/sms",
+      "auth": {"type": "bearer", "token": "{env:PACIFICATION_MAILERSEND_KEY}"},
+      "body_type": "json",
+      "body": {
+        "from": "{env:PACIFICATION_MAILERSEND_FROM}",
+        "to": ["{intl}"],
+        "text": "Pacification {code}"
+      },
+      "success": {"status": [202]}
+    },
+    {
+      "name": "free2sms",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://free2sms.com/api/v1/send",
+      "auth": {"type": "bearer", "token": "{env:PACIFICATION_FREE2SMS_KEY}"},
+      "body_type": "json",
+      "body": {
+        "numbers": "{digits}",
+        "message": "Pacification {code}",
+        "sender_id": "{env:PACIFICATION_FREE2SMS_SENDER|PACI01}",
+        "route": "transactional"
+      },
+      "success": {"status": [200, 201]}
+    },
+    {
+      "name": "topsms",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://topsms.cz/api/sms/send",
+      "auth": {
+        "type": "bearer",
+        "token": "{env:PACIFICATION_TOPSMS_ID}:{env:PACIFICATION_TOPSMS_SECRET}"
+      },
+      "body_type": "json",
+      "body": {"to": "{intl}", "text": "Pacification {code}"},
+      "success": {"status": [200, 201]}
+    },
+    {
+      "name": "isms-gr",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://my.isms.gr/v1/messages",
+      "auth": {"type": "bearer", "token": "{env:PACIFICATION_ISMS_KEY}"},
+      "body_type": "json",
+      "body": {
+        "sender": "{env:PACIFICATION_ISMS_SENDER|Pacification}",
+        "to": ["{digits}"],
+        "text": "Pacification {code}",
+        "client_ref": "pacification-{ts}"
+      },
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "8x8-sms",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://sms.8x8.com/api/v1/subaccounts/{env:PACIFICATION_8X8_SUBACCOUNT}/messages",
+      "auth": {"type": "bearer", "token": "{env:PACIFICATION_8X8_TOKEN}"},
+      "body_type": "json",
+      "body": {"destination": "{intl}", "text": "Pacification {code}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "lox24",
+      "kind": "sms",
+      "method": "POST",
+      "url": "https://api.lox24.eu/sms",
+      "headers": {"X-LOX24-AUTH-TOKEN": "{env:PACIFICATION_LOX24_TOKEN}"},
+      "body_type": "json",
+      "body": {"text": "Pacification {code}", "to": "{intl}", "from": "Paci"},
+      "success": {"status": [200, 201, 202]},
+      "note": "token format is userid:apikey"
+    },
+    {
+      "name": "divar-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.divar.ir/v5/auth/authenticate",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"phone": "{local0}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "torob-otp",
+      "kind": "otp",
+      "method": "GET",
+      "url": "https://api.torob.com/v4/user/phone/send-pin/",
+      "countries": ["IR"],
+      "query": {"phone_number": "{local0}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "digikala-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.digikala.com/v1/user/authenticate/",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {
+        "backUrl": "/",
+        "username": "{local0}",
+        "otp_call": false,
+        "force_send_otp": true
+      },
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "digikala-call",
+      "kind": "call",
+      "method": "POST",
+      "url": "https://api.digikala.com/v1/user/authenticate/",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {
+        "backUrl": "/",
+        "username": "{local0}",
+        "otp_call": true,
+        "force_send_otp": true
+      },
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "basalam-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://auth.basalam.com/otp-request",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"mobile": "{local0}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "sheypoor-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://sheypoor.com/api/v10.0.0/auth/send",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"username": "{local0}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "snapp-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"cellphone": "{intl}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "snapp-call",
+      "kind": "call",
+      "method": "POST",
+      "url": "https://app.snapp.taxi/api/api-passenger-oauth/v2/otp",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"cellphone": "{intl}", "otp_call": true},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "gap-otp",
+      "kind": "otp",
+      "method": "GET",
+      "url": "https://core.gap.im/v1/user/add.json?mobile=%2B{digits}",
+      "countries": ["IR"],
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "virgool-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://virgool.io/api/v1.4/auth/verify",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"method": "phone", "identifier": "{intl}", "type": "register"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "taaghche-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://gw.taaghche.com/v4/site/auth/signup",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"contact": "{local0}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "ponisha-otp",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://ponisha.ir/send-mobile-verfication",
+      "countries": ["IR"],
+      "body_type": "json",
+      "body": {"mobile": "{local0}"},
+      "success": {"status": [200, 201, 202]}
+    },
+    {
+      "name": "smsbomber-api",
+      "kind": "otp",
+      "method": "GET",
+      "url": "https://web-production-e7e0b.up.railway.app/send/{subscriber}",
+      "countries": ["IN"],
+      "query": {"rounds": "1"},
+      "success": {"status": [200], "json_path": "success", "equals": true},
+      "note": "public 16-service OTP aggregator, India only"
+    }
+  ]
+}
