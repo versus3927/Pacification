@@ -24,6 +24,54 @@ CC_TO_ISO = {
     "multi": None,
 }
 
+DISABLED = {
+    "tbomb-flipkart-0",
+    "tbomb-qlean-1",
+    "tbomb-mailru-2",
+    "tbomb-tinder-3",
+    "tbomb-youla-4",
+    "tbomb-ivi-5",
+    "tbomb-delitime-6",
+    "tbomb-icq-7",
+    "tbomb-ivitv-8",
+    "tbomb-indialends-9",
+    "tbomb-newtonschools-11",
+    "tbomb-qiwi-12",
+    "tbomb-confirmtkt-0",
+    "bombx-healthkart",
+    "bombx-meehelp",
+}
+
+FORCE_ENABLED = {"textbelt"}
+
+SUCCESS_PATCHES = {
+    "tbomb-redbus-10": {
+        "status": [200],
+        "json_path": "Message",
+        "equals": "OTP Sent Successfully",
+    },
+    "tbomb-treebo-12": {
+        "status": [200],
+        "json_path": "data.message",
+        "equals": "OTP sent successfully.",
+    },
+    "tbomb-pharmeasy-14": {
+        "status": [200],
+        "json_path": "status",
+        "equals": 1,
+    },
+    "tbomb-unacademy-11": {
+        "status": [200],
+        "json_path": "success_code",
+        "equals": "S1706",
+    },
+    "bombx-nnnow": {
+        "status": [200],
+        "json_path": "status",
+        "equals": True,
+    },
+}
+
 
 def fetch(url: str) -> str:
     request = Request(url, headers={"User-Agent": "Pacification registry builder"})
@@ -221,13 +269,20 @@ def merge(base: list[dict[str, Any]], additions: list[dict[str, Any]]) -> list[d
 
 
 def clean_success(providers: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """Drop numeric placeholders that match any response containing a status code."""
+    """Drop weak checks, pin real success markers, and park proven-dead endpoints."""
     for provider in providers:
+        name = str(provider.get("name", ""))
         success = provider.get("success") or {}
         pattern = str(success.get("regex") or "").strip()
         if pattern and (len(pattern) < 4 or not any(char.isalpha() for char in pattern)):
             success.pop("regex", None)
+        if name in SUCCESS_PATCHES:
+            success = dict(SUCCESS_PATCHES[name])
         provider["success"] = success
+        if name in DISABLED:
+            provider["enabled"] = False
+        elif name in FORCE_ENABLED:
+            provider["enabled"] = True
     return providers
 
 

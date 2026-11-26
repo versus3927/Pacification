@@ -64,7 +64,13 @@ set PACIFICATION_PROVIDERS=C:\path\to\providers.json
 python tools\build_registry.py
 ```
 
-Генератор читает Hamed, Alihtt, TBomb и BomBX, приводит `{phone}`, `{target}` и `Replace phonenumber here` к внутренним токенам, убирает дубли по имени и перезаписывает `pacification/providers.json`.
+Генератор читает Hamed, Alihtt, TBomb и BomBX, приводит `{phone}`, `{target}` и `Replace phonenumber here` к внутренним токенам, убирает дубли по имени, закрепляет проверенные маркеры успеха, выключает найденные мертвые эндпоинты и перезаписывает `pacification/providers.json`.
+
+Самопроверка реестра на тестовых номерах:
+
+```bash
+python tools\selfcheck.py
+```
 
 Формат одного провайдера:
 

@@ -267,7 +267,9 @@ def run_health_filter(settings: Settings) -> None:
         {
             item.provider
             for item in results
-            if not item.ok and item.detail not in {"cooldown", "stopped"}
+            if not item.ok
+            and item.detail not in {"cooldown", "stopped"}
+            and item.provider != "textbelt"
         }
     )
     console.print(

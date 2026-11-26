@@ -18,7 +18,8 @@
         "json_path": "success",
         "equals": true
       },
-      "note": "shared key sends 1 free SMS per day"
+      "note": "shared key sends 1 free SMS per day",
+      "enabled": true
     },
     {
       "name": "twilio-sms",
@@ -1741,7 +1742,8 @@
       "query": {
         "newOtp": "true",
         "mobileNumber": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-justdial-1",
@@ -1976,12 +1978,10 @@
       "url": "https://unacademy.com/api/v1/user/get_app_link/",
       "success": {
         "status": [
-          200,
-          201,
-          202,
-          204
+          200
         ],
-        "regex": "sent"
+        "json_path": "success_code",
+        "equals": "S1706"
       },
       "countries": [
         "IN"
@@ -1998,12 +1998,10 @@
       "url": "https://www.treebo.com/api/v2/auth/login/otp/",
       "success": {
         "status": [
-          200,
-          201,
-          202,
-          204
+          200
         ],
-        "regex": "sent"
+        "json_path": "data.message",
+        "equals": "OTP sent successfully."
       },
       "countries": [
         "IN"
@@ -2042,12 +2040,10 @@
       "url": "https://pharmeasy.in/api/auth/requestOTP",
       "success": {
         "status": [
-          200,
-          201,
-          202,
-          204
+          200
         ],
-        "regex": "resendSmsCounter"
+        "json_path": "status",
+        "equals": 1
       },
       "countries": [
         "IN"
@@ -2248,7 +2244,8 @@
         "X-user-agent": "Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0 FKUA/website/41/website/Desktop",
         "Origin": "https://www.flipkart.com",
         "Content-Type": "application/x-www-form-urlencoded"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-qlean-1",
@@ -2267,7 +2264,8 @@
       "body_type": "form",
       "body": {
         "phone": "{cc}{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-mailru-2",
@@ -2288,7 +2286,8 @@
         "api": "2",
         "email": "email",
         "x-email": "x-email"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-tinder-3",
@@ -2310,7 +2309,8 @@
       "query": {
         "auth_type": "sms",
         "locale": "ru"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-youla-4",
@@ -2328,7 +2328,8 @@
       "body_type": "form",
       "body": {
         "phone": "+{cc}{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-ivi-5",
@@ -2347,7 +2348,8 @@
       "body_type": "form",
       "body": {
         "phone": "{cc}{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-delitime-6",
@@ -2367,7 +2369,8 @@
       "body": {
         "SignupForm[username]": "{cc}{target}",
         "SignupForm[device_type]": "3"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-icq-7",
@@ -2388,7 +2391,8 @@
         "locale": "en",
         "k": "ic1rtwz1s1Hj1O0r",
         "r": "45559"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-ivitv-8",
@@ -2409,7 +2413,8 @@
         "phone": "{cc}{target}",
         "device": "Windows+v.43+Chrome+v.7453451",
         "app_version": "870"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-indialends-9",
@@ -2433,7 +2438,8 @@
       },
       "headers": {
         "Referer": "https://indialends.com/personal-loan"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-redbus-10",
@@ -2442,11 +2448,10 @@
       "url": "https://m.redbus.in/api/getOtp",
       "success": {
         "status": [
-          200,
-          201,
-          202,
-          204
-        ]
+          200
+        ],
+        "json_path": "Message",
+        "equals": "OTP Sent Successfully"
       },
       "query": {
         "number": "{target}",
@@ -2474,7 +2479,8 @@
       },
       "query": {
         "registration": true
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-qiwi-12",
@@ -2496,7 +2502,8 @@
         "username": "{cc}{target}",
         "client_id": "android-qw",
         "client_secret": "zAm4FKq9UnSe7id"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-makaan-0",
@@ -2619,7 +2626,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "bombx-nnnow",
@@ -2631,11 +2639,10 @@
       ],
       "success": {
         "status": [
-          200,
-          201,
-          202,
-          204
-        ]
+          200
+        ],
+        "json_path": "status",
+        "equals": true
       },
       "body_type": "json",
       "body": {
@@ -2685,7 +2692,8 @@
         "accept": "application/json",
         "accept-encoding": "gzip",
         "host": "meehelp.co.in"
-      }
+      },
+      "enabled": false
     }
   ]
 }

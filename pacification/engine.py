@@ -15,29 +15,60 @@ from .models import AttemptResult, Provider, Settings, Target
 Event = Callable[[AttemptResult], None]
 INTERNAL_RESULTS = {"cooldown", "stopped"}
 NEGATIVE_STATUSES = {"error", "failed", "failure", "invalid", "false", "blocked", "captcha"}
-NEGATIVE_TEXT = ("error", "failed", "invalid", "captcha", "blocked", "not sent", "rate limit")
+NEGATIVE_TEXT = (
+    "error",
+    "failed",
+    "invalid",
+    "captcha",
+    "blocked",
+    "not sent",
+    "rate limit",
+    "registered with different user",
+)
 
 
 def _negative_signal(payload: object, text: str) -> str:
-    if isinstance(payload, dict):
-        if payload.get("success") is False:
-            return "json success=false"
-        error = payload.get("error")
-        if error:
-            return f"json error={str(error)[:80]}"
-        status = str(payload.get("status", "")).lower()
-        if status in NEGATIVE_STATUSES:
-            return f"json status={status}"
-        for key in ("message", "msg", "detail", "description"):
-            value = str(payload.get(key, "")).lower()
-            for token in NEGATIVE_TEXT:
-                if token in value:
-                    return f"json {key} contains {token}"
+    def scan(value: object) -> str:
+        if isinstance(value, dict):
+            for raw_key, item in value.items():
+                key = str(raw_key).lower()
+                if key in {"error", "exception"} and item:
+                    return f"json {key}={str(item)[:80]}"
+                if key == "success" and item is False:
+                    return "json success=false"
+                if key == "status" and (
+                    item is False or str(item).lower() in NEGATIVE_STATUSES
+                ):
+                    return f"json status={item}"
+                if key in {"message", "msg", "detail", "description", "user_message"}:
+                    if isinstance(item, str):
+                        for token in NEGATIVE_TEXT:
+                            if token in item.lower():
+                                return f"json {key} contains {token}"
+                found = scan(item)
+                if found:
+                    return found
+        elif isinstance(value, list):
+            for item in value:
+                found = scan(item)
+                if found:
+                    return found
+        return ""
+
+    found = scan(payload)
+    if found:
+        return found
+    if payload is False:
+        return "json false"
+    if isinstance(payload, str) and payload.strip().lower() in {"false", "null", "0", "error"}:
+        return f"json {payload.strip()[:40]}"
 
     lowered = text.lower()
-    for token in ('"success":false', '"success": false', '"error":', "captcha", "too many requests", "invalid phone", "not sent"):
+    for token in ('"success":false', '"success": false', "captcha", "too many requests", "invalid phone", "not sent"):
         if token in lowered:
             return f"body contains {token}"
+    if re.search(r'"error"\s*:\s*(?!null\b|false\b|""|0\b)', lowered):
+        return "body contains error"
     return ""
 
 
