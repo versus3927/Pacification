@@ -16,7 +16,7 @@ from .config import build_context, load_dotenv, parse_target
 from .engine import Engine
 from .logger import RunLog
 from .models import AttemptResult, Settings
-from .providers import available, default_path, load_specs
+from .providers import available, default_path, load_specs, set_enabled
 
 console = Console()
 
@@ -27,6 +27,8 @@ MENU = """
   [yellow]2[/yellow]  Настройки -- раунды, задержка, потоки, режим
   [yellow]3[/yellow]  Провайдеры -- реестр и причины пропуска
   [yellow]4[/yellow]  Сухой прогон -- план без сети
+  [yellow]5[/yellow]  Фильтр живых -- отключить мертвые эндпоинты
+  [yellow]6[/yellow]  Восстановить -- включить все провайдеры
 
   [dim]0[/dim]  Выход
 """
@@ -186,6 +188,97 @@ def run_campaign(settings: Settings, dry: bool = False) -> None:
     console.print(f"[dim]лог: {log.path}[/dim]")
 
 
+def run_health_filter(settings: Settings) -> None:
+    raw = Prompt.ask("Номер для проверки", default="")
+    try:
+        target = parse_target(raw)
+    except Exception as exc:
+        console.print(f"[red]номер не разобран:[/red] {exc}")
+        return
+
+    context = build_context(target)
+    try:
+        specs = load_specs(_registry_path())
+    except (OSError, ValueError) as exc:
+        console.print(f"[red]реестр не прочитан:[/red] {exc}")
+        return
+
+    providers, _ = available(specs, context, target.country)
+    if not providers:
+        console.print("[yellow]проверять нечего. Проверь .env и режим.[/yellow]")
+        return
+
+    probe = settings.with_changes(
+        rounds=1,
+        delay=0.0,
+        dry_run=False,
+        cooldown=0.0,
+        max_failures=1,
+    )
+    if not Confirm.ask(
+        f"Проверить {len(providers)} провайдеров на {target.e164}? Будут реальные запросы.",
+        default=False,
+    ):
+        console.print("[dim]отменено.[/dim]")
+        return
+
+    log = RunLog("pacification-health.log")
+    engine = Engine(target, probe, providers)
+    wall = time.perf_counter()
+    try:
+        results = asyncio.run(engine.run())
+    except KeyboardInterrupt:
+        engine.stop()
+        results = []
+        console.print("[yellow]прервано.[/yellow]")
+    elapsed = time.perf_counter() - wall
+    for result in results:
+        log.write(result)
+
+    alive = sorted({item.provider for item in results if item.ok})
+    dead = sorted(
+        {
+            item.provider
+            for item in results
+            if not item.ok and item.detail not in {"cooldown", "stopped"}
+        }
+    )
+    console.print(
+        f"[green]живые:[/green] {len(alive)} | "
+        f"[red]мертвые:[/red] {len(dead)} | [dim]{elapsed:.1f}s[/dim]"
+    )
+    if dead:
+        preview = ", ".join(dead[:12])
+        console.print(f"[dim]{preview}[/dim]")
+        if Confirm.ask(f"Отключить {len(dead)} мертвых в реестре?", default=True):
+            try:
+                source, backup = set_enabled(set(dead), False, _registry_path())
+            except (OSError, ValueError) as exc:
+                console.print(f"[red]реестр не обновлен:[/red] {exc}")
+                return
+            console.print(f"[green]реестр:[/green] {source}")
+            console.print(f"[dim]бэкап: {backup}[/dim]")
+    console.print(f"[dim]лог: {log.path}[/dim]")
+
+
+def restore_registry() -> None:
+    try:
+        specs = load_specs(_registry_path())
+    except (OSError, ValueError) as exc:
+        console.print(f"[red]реестр не прочитан:[/red] {exc}")
+        return
+    if not Confirm.ask(f"Включить все {len(specs)} провайдеров?", default=False):
+        console.print("[dim]отменено.[/dim]")
+        return
+    try:
+        source, backup = set_enabled(None, True, _registry_path())
+    except (OSError, ValueError) as exc:
+        console.print(f"[red]реестр не обновлен:[/red] {exc}")
+        return
+    console.print(f"[green]реестр:[/green] {source}")
+    console.print(f"[dim]бэкап: {backup}[/dim]")
+
+
 def main() -> None:
     for stream in (sys.stdout, sys.stderr):
         reconfigure = getattr(stream, "reconfigure", None)
@@ -205,7 +298,7 @@ def main() -> None:
         console.print(MENU.format(version=__version__, mode=settings.mode))
         choice = Prompt.ask(
             "команда",
-            choices=["0", "1", "2", "3", "4"],
+            choices=["0", "1", "2", "3", "4", "5", "6"],
             default="1",
         )
         if choice == "0":
@@ -219,6 +312,10 @@ def main() -> None:
             show_registry()
         elif choice == "4":
             run_campaign(settings, dry=True)
+        elif choice == "5":
+            run_health_filter(settings)
+        elif choice == "6":
+            restore_registry()
 
 
 if __name__ == "__main__":

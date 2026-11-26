@@ -89,3 +89,32 @@ def available(
         else:
             ready.append(provider)
     return ready, skipped
+
+
+def _read_document(source: Path) -> tuple[object, Any]:
+    data = json.loads(source.read_text(encoding="utf-8-sig"))
+    return data, data["providers"] if isinstance(data, dict) else data
+
+
+def set_enabled(
+    names: set[str] | None,
+    enabled: bool,
+    path: str | Path | None = None,
+) -> tuple[Path, Path]:
+    """Flip providers in an existing registry, keeping a byte-for-byte backup."""
+    source = Path(path) if path else default_path()
+    data, items = _read_document(source)
+    if not isinstance(items, list):
+        raise ValueError("provider registry must be a list or an object with 'providers'")
+
+    for item in items:
+        if isinstance(item, dict) and (names is None or str(item.get("name", "")) in names):
+            item["enabled"] = enabled
+
+    backup = source.with_suffix(".bak.json")
+    backup.write_text(source.read_text(encoding="utf-8-sig"), encoding="utf-8")
+    source.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    return source, backup

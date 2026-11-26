@@ -193,6 +193,7 @@ class Engine:
                     dry_run=True,
                 )
             else:
+                await self._rate_limit()
                 result = await self._send(provider)
         except Exception as exc:  # network and HTTP failures are results, not crashes
             result = AttemptResult(
