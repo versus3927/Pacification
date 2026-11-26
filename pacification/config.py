@@ -125,6 +125,7 @@ def build_context(target: Target, code: str | None = None) -> dict[str, str]:
         "local": target.local,
         "local0": target.local0,
         "subscriber": target.subscriber,
+        "target": target.subscriber,
         "cc_local": target.cc_local,
         "code": otp,
         "ts": str(int(time.time() * 1000)),

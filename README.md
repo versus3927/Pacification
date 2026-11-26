@@ -1,6 +1,6 @@
 # Pacification
 
-Консольный бомбер с реестром провайдеров, подтверждением перед отправкой и логом каждого запроса.
+Консольный бомбер с реестром из 121 провайдера, подтверждением перед отправкой и логом каждого запроса.
 
 ## Запуск
 
@@ -38,7 +38,7 @@ copy .env.example .env
 Поддерживаемые группы:
 
 - Textbelt, Twilio SMS/Call, Vonage, SMS.To, MailerSend, Free2SMS, TopSMS, iSMS.gr, 8x8, LOX24 — ключевые шлюзы.
-- OTP-эндпоинты для IR и IN — без ключа, но с ограничением по региону номера.
+- OTP-эндпоинты для IR, IN, LY, NP и multi — без ключа, с ограничением по региону номера.
 
 ## Реестр
 
@@ -47,6 +47,14 @@ copy .env.example .env
 ```bash
 set PACIFICATION_PROVIDERS=C:\path\to\providers.json
 ```
+
+Обновление реестра из публичных источников:
+
+```bash
+python tools\build_registry.py
+```
+
+Генератор читает Hamed, Alihtt, TBomb и BomBX, приводит `{phone}`, `{target}` и `Replace phonenumber here` к внутренним токенам, убирает дубли по имени и перезаписывает `pacification/providers.json`.
 
 Формат одного провайдера:
 
@@ -81,7 +89,7 @@ set PACIFICATION_PROVIDERS=C:\path\to\providers.json
 {phone} {e164} {intl}       +79991234567
 {digits} {cc_local}         79991234567
 {cc}                        7
-{local} {subscriber}        9991234567
+{local} {subscriber} {target} 9991234567
 {local0}                    09991234567
 {national}                  9991234567
 {country}                   RU
