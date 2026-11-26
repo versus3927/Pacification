@@ -72,6 +72,12 @@ python tools\build_registry.py
 python tools\selfcheck.py
 ```
 
+С ключом `--prune` проверка дополнительно отключает в реестре все провайдеры, которые не ответили успехом, кроме `textbelt`:
+
+```bash
+python tools\selfcheck.py --prune
+```
+
 Формат одного провайдера:
 
 ```json

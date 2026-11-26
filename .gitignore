@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 *.log
+*.bak.json
 .env
 .venv/
 venv/

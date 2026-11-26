@@ -310,7 +310,8 @@
           201,
           202
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "digikala-call",
@@ -353,7 +354,8 @@
           201,
           202
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "sheypoor-otp",
@@ -373,7 +375,8 @@
           201,
           202
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "snapp-otp",
@@ -393,7 +396,8 @@
           201,
           202
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "snapp-call",
@@ -452,7 +456,8 @@
           201,
           202
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "taaghche-otp",
@@ -472,7 +477,8 @@
           201,
           202
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "ponisha-otp",
@@ -492,7 +498,8 @@
           201,
           202
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "smsbomber-api",
@@ -512,7 +519,8 @@
         "json_path": "success",
         "equals": true
       },
-      "note": "public 16-service OTP aggregator, India only"
+      "note": "public 16-service OTP aggregator, India only",
+      "enabled": false
     },
     {
       "name": "divar",
@@ -552,7 +560,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "digikala",
@@ -576,7 +585,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "basalam",
@@ -597,7 +607,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "sheypoor",
@@ -639,7 +650,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "taaghche",
@@ -660,7 +672,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "ponisha",
@@ -682,7 +695,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "logonomy",
@@ -724,7 +738,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "shahrfarsh",
@@ -745,7 +760,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "technolife",
@@ -770,7 +786,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "hiss",
@@ -792,7 +809,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "quera",
@@ -813,7 +831,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-1",
@@ -835,7 +854,8 @@
       "body": {
         "source": "besina",
         "mobile": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-2",
@@ -860,7 +880,8 @@
         "category": "etc",
         "mobile": "{local0}",
         "name": " "
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-3",
@@ -881,7 +902,8 @@
       "body_type": "json",
       "body": {
         "phone": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-4",
@@ -923,7 +945,8 @@
       "body_type": "json",
       "body": {
         "cellphone": "{intl}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-6",
@@ -992,7 +1015,8 @@
       "body_type": "json",
       "body": {
         "phone_number": "{intl}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-9",
@@ -1015,7 +1039,8 @@
         "method": "phone",
         "identifier": "{intl}",
         "type": "register"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-10",
@@ -1041,7 +1066,8 @@
         "mobile_phone": "{cc_local}",
         "country_code": "+98",
         "email": "a@gmail.com"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-11",
@@ -1062,7 +1088,8 @@
       "body_type": "json",
       "body": {
         "contact": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-12",
@@ -1110,7 +1137,8 @@
       "body_type": "json",
       "body": {
         "phone": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-14",
@@ -1131,7 +1159,8 @@
       "body_type": "json",
       "body": {
         "mobile": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-15",
@@ -1177,7 +1206,8 @@
       "body_type": "json",
       "body": {
         "phone": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-17",
@@ -1198,7 +1228,8 @@
       "body_type": "json",
       "body": {
         "mobile": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-18",
@@ -1223,7 +1254,8 @@
           "username": "{local0}"
         },
         "g-recaptcha-response": ""
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-19",
@@ -1249,7 +1281,8 @@
         "orderPageUrl": "https://www.hamrah-mechanic.com/membersignin/",
         "prevUrl": "https://www.hamrah-mechanic.com/",
         "referrer": "https://www.google.com/"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-20",
@@ -1292,7 +1325,8 @@
       "body": {
         "mobile": "{local0}",
         "client_id": 11
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-22",
@@ -1313,7 +1347,8 @@
       "body_type": "json",
       "body": {
         "phone_number": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-23",
@@ -1334,7 +1369,8 @@
       "body_type": "json",
       "body": {
         "mobile": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-24",
@@ -1372,7 +1408,8 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-26",
@@ -1396,7 +1433,8 @@
         "CellPhone": "{local0}",
         "CaptchaKey": "null",
         "JustMobilephone": "{subscriber}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-27",
@@ -1417,7 +1455,8 @@
       "body_type": "json",
       "body": {
         "phone": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-28",
@@ -1438,7 +1477,8 @@
       "body_type": "json",
       "body": {
         "mobile": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-29",
@@ -1480,7 +1520,8 @@
       "body_type": "json",
       "body": {
         "mobile": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-31",
@@ -1503,7 +1544,8 @@
         "CellNumber": "{local0}",
         "Appname": "bamawebapplication",
         "smsfor": 6
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-32",
@@ -1524,7 +1566,8 @@
       "body_type": "json",
       "body": {
         "phoneNumber": "{local0}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "alihtt-otp-33",
@@ -1764,7 +1807,8 @@
       ],
       "query": {
         "mobile": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-allensolly-2",
@@ -1787,7 +1831,8 @@
       "body": {
         "mobileoremail": "{target}",
         "name": "markluther"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-frotels-3",
@@ -1809,7 +1854,8 @@
       "body_type": "form",
       "body": {
         "mobno": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-gapoon-4",
@@ -1832,7 +1878,8 @@
         "mobile": "{target}",
         "email": "noreply@gmail.com",
         "name": "LexLuthor"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-housing-5",
@@ -1854,7 +1901,8 @@
       "body_type": "form",
       "body": {
         "phone": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-porter-6",
@@ -1878,7 +1926,8 @@
         "phone": "{target}",
         "referrer_string": "",
         "brand": "porter"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-cityflo-7",
@@ -1900,7 +1949,8 @@
       "body_type": "form",
       "body": {
         "mobile_number": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-nnnow-8",
@@ -1922,7 +1972,8 @@
       "body_type": "form",
       "body": {
         "mobileNumber": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-ajio-9",
@@ -1948,7 +1999,8 @@
         "genderType": "Male",
         "mobileNumber": "{target}",
         "requestType": "SENDOTP"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-happyeasygo-10",
@@ -1969,7 +2021,8 @@
       ],
       "query": {
         "phone": "91%20{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-unacademy-11",
@@ -2031,7 +2084,8 @@
       "query": {
         "messageId": "map",
         "rtn": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-pharmeasy-14",
@@ -2073,7 +2127,8 @@
       "body_type": "form",
       "body": {
         "contactNo": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-grofers-16",
@@ -2098,7 +2153,8 @@
       },
       "headers": {
         "auth_key": "3f0b81a721b2c430b145ecb80cfdf51b170bf96135574e7ab7c577d24c45dbd7"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-dream11-17",
@@ -2122,7 +2178,8 @@
         "siteId": "1",
         "mobileNum": "{target}",
         "appType": "androidfull"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-cashify-18",
@@ -2143,7 +2200,8 @@
       ],
       "query": {
         "mn": "{target}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-paytm-19",
@@ -2165,7 +2223,8 @@
       "body": {
         "phone": "{target}",
         "guid": "2952fa812660c58dc160ca6c9894221d"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-kfc-in-20",
@@ -2193,7 +2252,8 @@
       "headers": {
         "Referer": "https://online.kfc.co.in/login",
         "__RequestVerificationToken": "-zoQqa7WNa3z-mwOyqWHvcyYkCqYv0h7zqNUAqBivokB75ZiDj-LwQsGk4kB8QextV396CRJxxPAsWXfwYMoPFhMVlQBd1V0ONFeIrpj2C81:ub34fZv2vHPnub-TuF-vkK4rAkfKmIgnZFscecZJ3-kzvRU9CktNjLyLOCFNsixxFGbotqULbV41iHU2K-G0Aoqd4P4MQqIsjJm8tFkZga01"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-indialends-21",
@@ -2220,7 +2280,8 @@
       },
       "headers": {
         "Referer": "https://indialends.com/personal-loan"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "tbomb-flipkart-0",
@@ -2647,7 +2708,8 @@
       "body_type": "json",
       "body": {
         "mobileNumber": "{subscriber}"
-      }
+      },
+      "enabled": false
     },
     {
       "name": "bombx-shiprocket",
