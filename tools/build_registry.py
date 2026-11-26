@@ -132,6 +132,10 @@ SUCCESS_PATCHES = {
     },
 }
 
+CREDENTIAL_PATCHES = {
+    "textbelt": {"key": "{env:PACIFICATION_TEXTBELT_KEY}"},
+}
+
 
 def fetch(url: str) -> str:
     request = Request(url, headers={"User-Agent": "Pacification registry builder"})
@@ -339,6 +343,10 @@ def clean_success(providers: list[dict[str, Any]]) -> list[dict[str, Any]]:
         if name in SUCCESS_PATCHES:
             success = dict(SUCCESS_PATCHES[name])
         provider["success"] = success
+        if name in CREDENTIAL_PATCHES:
+            body = dict(provider.get("body") or {})
+            body.update(CREDENTIAL_PATCHES[name])
+            provider["body"] = body
         if name in DISABLED:
             provider["enabled"] = False
         elif name in FORCE_ENABLED:

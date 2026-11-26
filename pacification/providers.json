@@ -9,7 +9,7 @@
       "body": {
         "phone": "{intl}",
         "message": "Pacification {code}",
-        "key": "{env:PACIFICATION_TEXTBELT_KEY|textbelt}"
+        "key": "{env:PACIFICATION_TEXTBELT_KEY}"
       },
       "success": {
         "status": [

@@ -29,7 +29,7 @@ SETTINGS = Settings(
 KEEP_ENABLED = {"textbelt"}
 
 
-async def probe(specs: list[dict[str, Any]], region: str, raw: str) -> set[str]:
+async def probe(specs: list[dict[str, Any]], region: str, raw: str) -> tuple[set[str], set[str]]:
     target = parse_target(raw, region)
     providers, _ = available(specs, build_context(target), target.country)
     results = await Engine(target, SETTINGS, providers).run()
@@ -38,7 +38,17 @@ async def probe(specs: list[dict[str, Any]], region: str, raw: str) -> set[str]:
     print(f"{target.country}: ready={len(providers)} alive={len(alive)} dead={len(dead)}")
     print("ALIVE:", ", ".join(alive))
     print("DEAD:", ", ".join(dead))
-    return set(dead) - KEEP_ENABLED
+    return set(alive), set(dead) - KEEP_ENABLED
+
+
+async def sweep(specs: list[dict[str, Any]]) -> tuple[set[str], set[str]]:
+    alive_all: set[str] = set()
+    dead_all: set[str] = set()
+    for region, raw in CASES:
+        alive, dead = await probe(specs, region, raw)
+        alive_all.update(alive)
+        dead_all.update(dead)
+    return alive_all, dead_all
 
 
 async def main() -> None:
@@ -48,25 +58,54 @@ async def main() -> None:
         action="store_true",
         help="disable providers that failed this check, excluding quota-limited textbelt",
     )
+    parser.add_argument(
+        "--until-success",
+        action="store_true",
+        help="repeat live checks until at least one provider confirms a send",
+    )
+    parser.add_argument(
+        "--max-cycles",
+        type=int,
+        default=50,
+        help="cycle limit for --until-success (default: 50)",
+    )
     args = parser.parse_args()
 
     registry = os.environ.get("PACIFICATION_PROVIDERS")
     specs = load_specs(registry)
     print(f"registry: {len(specs)}")
 
-    dead: set[str] = set()
-    for region, raw in CASES:
-        dead.update(await probe(specs, region, raw))
-
-    if not args.prune:
+    dead_total: set[str] = set()
+    if not args.until_success:
+        _, dead_total = await sweep(specs)
+        if args.prune and dead_total:
+            source, backup = set_enabled(dead_total, False, registry)
+            print(f"PRUNED: {len(dead_total)} -> {source}")
+            print(f"BACKUP: {backup}")
+        elif args.prune:
+            print("PRUNE: nothing to disable")
         return
-    if not dead:
-        print("PRUNE: nothing to disable")
-        return
 
-    source, backup = set_enabled(dead, False, registry)
-    print(f"PRUNED: {len(dead)} -> {source}")
-    print(f"BACKUP: {backup}")
+    alive_total: set[str] = set()
+    for cycle in range(1, max(1, args.max_cycles) + 1):
+        alive, dead = await sweep(specs)
+        alive_total.update(alive)
+        dead_total.update(dead)
+        if alive:
+            print(f"NOTIFICATION: {', '.join(sorted(alive))}")
+            break
+        print(f"cycle {cycle}: no notification")
+        if cycle < max(1, args.max_cycles):
+            await asyncio.sleep(1.0)
+
+    if args.prune and dead_total:
+        source, backup = set_enabled(dead_total, False, registry)
+        print(f"PRUNED: {len(dead_total)} -> {source}")
+        print(f"BACKUP: {backup}")
+
+    if not alive_total:
+        print(f"STOP: no notification after {max(1, args.max_cycles)} cycles")
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

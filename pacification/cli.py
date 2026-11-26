@@ -29,6 +29,7 @@ MENU = """
   [yellow]4[/yellow]  Сухой прогон -- план без сети
   [yellow]5[/yellow]  Фильтр живых -- отключить мертвые эндпоинты
   [yellow]6[/yellow]  Восстановить -- включить все провайдеры
+  [bold green]7[/bold green]  Монитор -- цикл до подтверждения отправки
 
   [dim]0[/dim]  Выход
 """
@@ -308,6 +309,68 @@ def restore_registry() -> None:
     console.print(f"[dim]бэкап: {backup}[/dim]")
 
 
+def run_monitor(settings: Settings) -> None:
+    raw = Prompt.ask("Номер телефона", default="")
+    try:
+        target = parse_target(raw)
+    except Exception as exc:
+        console.print(f"[red]номер не разобран:[/red] {exc}")
+        return
+
+    context = build_context(target)
+    try:
+        specs = load_specs(_registry_path())
+    except (OSError, ValueError) as exc:
+        console.print(f"[red]реестр не прочитан:[/red] {exc}")
+        return
+
+    candidates = [dict(spec, enabled=True, countries=[]) for spec in specs]
+    providers, skipped = available(candidates, context, target.country)
+    if not providers:
+        console.print("[yellow]нет доступных провайдеров. Проверь .env и режим.[/yellow]")
+        return
+
+    probe = settings.with_changes(
+        rounds=1,
+        delay=0.0,
+        dry_run=False,
+        cooldown=0.0,
+        max_failures=1,
+    )
+    if not Confirm.ask(
+        f"Мониторить {target.e164}, {len(providers)} провайдеров до подтверждения отправки?",
+        default=False,
+    ):
+        console.print("[dim]отменено.[/dim]")
+        return
+
+    log = RunLog("pacification-monitor.log")
+    console.print(
+        f"[cyan]монитор:[/cyan] {len(providers)} провайдеров | "
+        f"[dim]пропущено {len(skipped)}[/dim]"
+    )
+    cycle = 0
+    try:
+        while True:
+            cycle += 1
+            results = asyncio.run(Engine(target, probe, providers).run())
+            for result in results:
+                log.write(result)
+            confirmed = sorted({item.provider for item in results if item.ok})
+            if confirmed:
+                console.print(f"[bold green]УВЕДОМЛЕНИЕ:[/bold green] {', '.join(confirmed)}")
+                break
+            failed = sum(1 for item in results if not item.ok)
+            console.print(
+                f"[dim]попытка {cycle}: подтверждений нет, ошибок {failed}, "
+                f"пауза {settings.delay:g}s[/dim]"
+            )
+            time.sleep(max(0.2, settings.delay))
+    except KeyboardInterrupt:
+        console.print("[yellow]монитор остановлен.[/yellow]")
+    console.print(f"[dim]лог: {log.path}[/dim]")
+
+
 def main() -> None:
     for stream in (sys.stdout, sys.stderr):
         reconfigure = getattr(stream, "reconfigure", None)
@@ -327,7 +390,7 @@ def main() -> None:
         console.print(MENU.format(version=__version__, mode=settings.mode))
         choice = Prompt.ask(
             "команда",
-            choices=["0", "1", "2", "3", "4", "5", "6"],
+            choices=["0", "1", "2", "3", "4", "5", "6", "7"],
             default="1",
         )
         if choice == "0":
@@ -345,6 +408,8 @@ def main() -> None:
             run_health_filter(settings)
         elif choice == "6":
             restore_registry()
+        elif choice == "7":
+            run_monitor(settings)
 
 
 if __name__ == "__main__":
