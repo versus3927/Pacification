@@ -137,6 +137,32 @@ def show_summary(results: list[AttemptResult], elapsed_s: float) -> None:
         console.print(detail_table)
 
 
+def maybe_prune(results: list[AttemptResult], dry: bool) -> None:
+    if dry or not results:
+        return
+    dead = sorted(
+        {
+            item.provider
+            for item in results
+            if not item.ok
+            and item.detail not in {"cooldown", "stopped"}
+            and item.provider != "textbelt"
+        }
+    )
+    if not dead:
+        return
+    if not Confirm.ask(f"Отключить {len(dead)} провайдеров с ошибками в реестре?", default=True):
+        console.print("[dim]реестр не тронут.[/dim]")
+        return
+    try:
+        source, backup = set_enabled(set(dead), False, _registry_path())
+    except (OSError, ValueError) as exc:
+        console.print(f"[red]реестр не обновлен:[/red] {exc}")
+        return
+    console.print(f"[green]реестр обновлен:[/green] {source}")
+    console.print(f"[dim]бэкап: {backup}[/dim]")
+
+
 def run_campaign(settings: Settings, dry: bool = False) -> None:
     raw = Prompt.ask("Номер телефона", default="")
     try:
@@ -185,6 +211,7 @@ def run_campaign(settings: Settings, dry: bool = False) -> None:
     for result in results:
         log.write(result)
     show_summary(results, elapsed)
+    maybe_prune(results, active.dry_run)
     console.print(f"[dim]лог: {log.path}[/dim]")
 
 
