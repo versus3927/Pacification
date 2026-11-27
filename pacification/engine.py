@@ -105,6 +105,7 @@ class Engine:
         self._failures: dict[str, int] = {}
         self._cooldown: dict[str, float] = {}
         self._stop = False
+        self._confirmed = 0
         self._client: httpx.AsyncClient | None = None
 
     def stop(self) -> None:
@@ -228,6 +229,9 @@ class Engine:
             return
         if result.ok:
             self._failures[result.provider] = 0
+            self._confirmed += 1
+            if self._confirmed >= max(1, self.settings.target_count):
+                self._stop = True
             return
         failures = self._failures.get(result.provider, 0) + 1
         self._failures[result.provider] = failures

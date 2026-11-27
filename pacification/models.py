@@ -48,6 +48,7 @@ class Settings:
     dry_run: bool = False
     cooldown: float = 45.0
     max_failures: int = 3
+    target_count: int = 10
 
     def with_changes(self, **changes: Any) -> "Settings":
         return replace(self, **changes)

