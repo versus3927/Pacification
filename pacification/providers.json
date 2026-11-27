@@ -3590,7 +3590,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://www.oyorooms.com/api/pwa/generateotp?phone={e164}&country_code=%2B7&nod=4&locale=en",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -3603,7 +3603,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-12-secure.online.ua",
@@ -4201,7 +4201,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://koronapay.com/transfers/online/api/users/otps",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -4216,7 +4216,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-39-loany.com.ua",
@@ -4269,7 +4269,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://makarolls.ru/bitrix/components/aloe/aloe.user/login_new.php",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -4285,7 +4285,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-42-www.menu.ua",
@@ -4473,7 +4473,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://prod.tvh.mts.ru/tvh-public-api-gateway/public/rest/general/send-code?msisdn={digits}",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -4486,7 +4486,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-51-auth.multiplex.ua",
@@ -5562,7 +5562,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://lk.invitro.ru/lk2/lka/patient/refreshCode",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -5577,7 +5577,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-101-app.karusel.ru",
