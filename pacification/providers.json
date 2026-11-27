@@ -3791,7 +3791,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://vladimir.edostav.ru/site/CheckAuthLogin",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -3806,7 +3806,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-21-api.eldorado.ua",
@@ -3833,7 +3833,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://www.etm.ru/cat/runprog.html",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -3851,7 +3851,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-23-www.finam.ru",
@@ -3943,7 +3943,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://www.hatimaki.ru/register/",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -3963,7 +3963,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-28-helsi.me",
@@ -5033,7 +5033,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://www.tvoyaapteka.ru/bitrix/ajax/form_user_new.php?confirm_register=1",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -5049,7 +5049,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-77-uklon.com.ua",
@@ -6076,7 +6076,7 @@
       "kind": "otp",
       "method": "POST",
       "url": "https://api.sunlight.net/v3/customers/authorization/",
-      "enabled": true,
+      "enabled": false,
       "countries": [],
       "headers": {},
       "body_type": "json",
@@ -6091,7 +6091,7 @@
           204
         ]
       },
-      "note": "master-bomber import"
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "mb2-124-register.sipnet.ru",
