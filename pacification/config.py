@@ -114,6 +114,13 @@ def parse_target(raw: str, default_region: str = "RU") -> Target:
 
 def build_context(target: Target, code: str | None = None) -> dict[str, str]:
     otp = code or str(secrets.randbelow(900_000) + 100_000)
+    sub = target.subscriber
+    # RU-style formatted variants: subscriber = 9991234567
+    p3, p3b, p2, p2b = sub[0:3], sub[3:6], sub[6:8], sub[8:10]
+    formatted_spaced = f"+{target.cc} ({p3}) {p3b}-{p2}-{p2b}"
+    formatted_paren = f"+{target.cc}({p3}) {p3b}-{p2}-{p2b}"
+    formatted_space = f"+{target.cc} {p3} {p3b} {p2} {p2b}"
+    formatted_dash = f"+{target.cc}-{p3}-{p3b}-{p2}-{p2b}"
     return {
         "phone": target.e164,
         "e164": target.e164,
@@ -127,6 +134,10 @@ def build_context(target: Target, code: str | None = None) -> dict[str, str]:
         "subscriber": target.subscriber,
         "target": target.subscriber,
         "cc_local": target.cc_local,
+        "phone_fmt1": formatted_spaced,
+        "phone_fmt2": formatted_paren,
+        "phone_fmt3": formatted_space,
+        "phone_fmt4": formatted_dash,
         "code": otp,
         "ts": str(int(time.time() * 1000)),
         "ua": UA,
